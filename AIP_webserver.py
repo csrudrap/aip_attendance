@@ -10,6 +10,11 @@ import socket
 import os
 import sys
 
+http_header_success = "HTTP/1.0 200 OK\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
+                  "max = 100\nConnection: Keep-Alive\n\n"
+http_header_file_not_found = "HTTP/1.0 404 Not Found\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
+                  "max = 100\nConnection: Keep-Alive\n\n"
+
 
 class Server:
     def __init__(self, port):
@@ -63,7 +68,7 @@ class Server:
                 else:
                     print "Access Denied."
                 data = conn.recv(1024)
-                conn.send('HTTP/1.0 200 OK\n')
+                '''conn.send('HTTP/1.0 200 OK\n')
                 conn.send('Content-Type: text/html\n')
                 conn.send('Keep - Alive: timeout = 5, max = 100\n')
                 conn.send('Connection: Keep-Alive\n')
@@ -74,8 +79,7 @@ class Server:
                             <h1>Hello World</h1> Wait, my server?
                             </body>
                             </html>
-                        """)
-                conn.close()
+                        """)'''
                 process_data(self, data, conn)
                 sys.exit(1)
             else:
@@ -88,8 +92,31 @@ def is_in_same_subnet(server_ip, cli_ip):
     return True
 
 
+def get_file(filename):
+    filename_stripped = filename.split("?")[0]
+    try:
+        f = open(filename_stripped[1:], 'rb')
+        file_contents = f.read()
+        return file_contents
+    except Exception as e:
+        print e.message
+        return None
+
+
 def process_data(server, data, conn):
-    print data
+    if data[0:3] == "GET":
+        header_lines = data.split("\n")
+        method_and_file = header_lines[0].split(" ")
+        method = method_and_file[0]
+        filename = method_and_file[1]
+        file_to_send = get_file(filename)
+        if file_to_send:
+            global http_header_success
+            conn.send(http_header_success + file_to_send)
+        else:
+            global http_header_file_not_found
+            conn.send(http_header_file_not_found)
+        conn.close()
 
 
 def main():
