@@ -99,16 +99,16 @@ def get_file(filename):
         file_contents = f.read()
         return file_contents
     except Exception as e:
-        print e.message
+        print "File could not be opened or read: ", e.message
         return None
 
 
 def process_data(server, data, conn):
-    if data[0:3] == "GET":
-        header_lines = data.split("\n")
-        method_and_file = header_lines[0].split(" ")
-        method = method_and_file[0]
-        filename = method_and_file[1]
+    header_lines = data.split("\n")
+    method_and_file = header_lines[0].split(" ")
+    method = method_and_file[0]
+    filename = method_and_file[1]
+    if method == "GET":
         file_to_send = get_file(filename)
         if file_to_send:
             global http_header_success
@@ -117,12 +117,42 @@ def process_data(server, data, conn):
             global http_header_file_not_found
             conn.send(http_header_file_not_found)
         conn.close()
+    elif method == "POST":
+        split_data = data.split("\n")
+        path = split_data[0].split(" ")[1]
+        if path.lower() == "/submit":
+            '''dict_cli_inp = {}
+            for item in data.split("\n")[1:]:
+                if ":" in item:
+                    dict_cli_inp[item.split(":")[0]] = item[len(item.split(":")[0]) + 1:]
+            print dict_cli_inp'''
+            params_joined = split_data[-1]
+            dict_params = {}
+            for item in params_joined.split("&"):
+                if "=" in item:
+                    dict_params[item.split("=")[0]] = item.split("=")[1]
 
 
 def main():
     client_count = 0
-    s = Server(8952)
+    s = Server(8953)
     s.create_socket()
 
 if __name__ == "__main__":
     main()
+
+'''POST /submit HTTP/1.1
+Host: 192.168.0.14:8953
+Connection: keep-alive
+Content-Length: 35
+Cache-Control: max-age=0
+Origin: http://192.168.0.14:8953
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Referer: http://192.168.0.14:8953/attendance.html
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+unity_id=0&first_name=s&last_name=q'''
