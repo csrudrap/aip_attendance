@@ -9,6 +9,7 @@
 import socket
 import os
 import sys
+import time
 
 http_header_success = "HTTP/1.0 200 OK\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
                   "max = 100\nConnection: Keep-Alive\n\n"
@@ -49,42 +50,40 @@ class Server:
         except Exception as e:
             print e.message, " Couldn't close the socket"
 
-    def process_client_address(self, cli_ip):
-        server_ip = socket.gethostbyname(socket.gethostname())
-        if is_in_same_subnet(server_ip, cli_ip):
-            return True
-        else:
-            return False
-
     def listen_main_loop(self):
         while True:
             self.sock.listen(1)
             conn, cli_addr = self.sock.accept()
-            print "fine" # prints 4 times!
-
             if os.fork() == 0:
-                if self.process_client_address(cli_addr[0]):
-                    print "OH!"
+                if process_client_address(cli_addr[0]):
+                    data = conn.recv(1024)
+                    '''conn.send('HTTP/1.0 200 OK\n')
+                    conn.send('Content-Type: text/html\n')
+                    conn.send('Keep - Alive: timeout = 5, max = 100\n')
+                    conn.send('Connection: Keep-Alive\n')
+                    conn.send('\n')
+                    conn.send("""
+                                <html>
+                                <body>
+                                <h1>Hello World</h1> Wait, my server?
+                                </body>
+                                </html>
+                            """)'''
+                    process_data(data, conn)
                 else:
                     print "Access Denied."
-                data = conn.recv(1024)
-                '''conn.send('HTTP/1.0 200 OK\n')
-                conn.send('Content-Type: text/html\n')
-                conn.send('Keep - Alive: timeout = 5, max = 100\n')
-                conn.send('Connection: Keep-Alive\n')
-                conn.send('\n')
-                conn.send("""
-                            <html>
-                            <body>
-                            <h1>Hello World</h1> Wait, my server?
-                            </body>
-                            </html>
-                        """)'''
-                process_data(self, data, conn)
                 sys.exit(1)
             else:
                 # Parent should simply listen to incoming requests
                 pass
+
+
+def process_client_address(cli_ip):
+    server_ip = socket.gethostbyname(socket.gethostname())
+    if is_in_same_subnet(server_ip, cli_ip):
+        return True
+    else:
+        return False
 
 
 def is_in_same_subnet(server_ip, cli_ip):
@@ -96,19 +95,69 @@ def get_file(filename):
     filename_stripped = filename.split("?")[0]
     try:
         f = open(filename_stripped[1:], 'rb')
-        file_contents = f.read()
-        return file_contents
+        try:
+            file_contents = f.read()
+            return file_contents
+        except Exception as e:
+            print "File could not be read: ", e.message
+            return None
     except Exception as e:
-        print "File could not be opened or read: ", e.message
+        print "File could not be opened: ", e.message
         return None
 
 
-def process_data(server, data, conn):
+def write_attendance_file(dict_params):
+    try:
+        file_all_students = open("Students_Sorted.txt")
+        try:
+            all_students_contents = file_all_students.read()
+            lines = all_students_contents.split("\n")
+            dict_unity_ids = {}
+            for i in lines:
+                if ":" in i and ";" in i:
+                    dict_unity_ids[i.split(";")[1].strip()] = int(i.split(":")[0])
+            dict_unity_ids_str_keys = map(str.strip, dict_unity_ids.keys())
+            if dict_params.get("unity_id") in dict_unity_ids_str_keys:
+                # open the new file
+                # acquire lock (global boolean?)
+                # write
+                # release lock
+                try:
+                    f_att_out = open("Att_output.txt", "ab")
+                    try:
+                        output = "\n" + str(dict_unity_ids.get(dict_params.get("unity_id"))) + ". " \
+                            + str(dict_params.get("unity_id")) + "\t" + dict_params.get("last_name") + " " \
+                            + dict_params.get("first_name")
+                        try:
+                            f_att_out.write(output)
+                            return True
+                        except Exception as e:
+                            print "Error in writing to file", e.message
+                    except Exception as e:
+                        print "File could not be read: ", e.message
+                        return False
+                except Exception as e:
+                    print "File could not be opened: ", e.message
+                    return False
+
+        except Exception as e:
+            print "File could not be read: ", e.message
+            sys.exit(1)
+    except Exception as e:
+        print "File could not be opened: ", e.message
+        sys.exit(1)
+    return False
+
+
+def process_data(data, conn):
     header_lines = data.split("\n")
     method_and_file = header_lines[0].split(" ")
+    print method_and_file
     method = method_and_file[0]
-    filename = method_and_file[1]
-    if method == "GET":
+    filename = None
+    if len(method_and_file) > 1:
+        filename = method_and_file[1] if method_and_file is not None else None
+    if method is not None and method == "GET":
         file_to_send = get_file(filename)
         if file_to_send:
             global http_header_success
@@ -116,8 +165,7 @@ def process_data(server, data, conn):
         else:
             global http_header_file_not_found
             conn.send(http_header_file_not_found)
-        conn.close()
-    elif method == "POST":
+    elif method is not None and method == "POST":
         split_data = data.split("\n")
         path = split_data[0].split(" ")[1]
         if path.lower() == "/submit":
@@ -131,11 +179,18 @@ def process_data(server, data, conn):
             for item in params_joined.split("&"):
                 if "=" in item:
                     dict_params[item.split("=")[0]] = item.split("=")[1]
+            w = write_attendance_file(dict_params)
+            if w:
+                conn.send(http_header_success + "<html><body><h1>Attendance has been recorded</h1></body</html>")
+            else:
+                conn.send(http_header_file_not_found)   # have to handle properly
+    conn.close()
+    sys.exit(0)
 
 
 def main():
     client_count = 0
-    s = Server(8953)
+    s = Server(8956)
     s.create_socket()
 
 if __name__ == "__main__":
