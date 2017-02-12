@@ -89,6 +89,8 @@ def process_client_address(cli_ip):
 
 def is_in_same_subnet(cli_ip):
     # must fill this out
+    if cli_ip == "127.0.0.1":
+        return True
     status, ip_addr_op = commands.getstatusoutput("ifconfig en0 | grep \"inet \"")
     ip_addr_mask = ip_addr_op.split(" ")[0:4]
     if ip_addr_mask is not None:
@@ -141,7 +143,21 @@ def get_file(filename):
 
 def already_exists(param):
     file_output = open("Att_output.txt", "rb")
-    # check if this number exists in the file already, do not have duplicates.
+    # check if this unity ID exists in the file already, do not have duplicates.
+    output_lines = file_output.read()
+    #print "op: ", output_lines
+    output_lines_l = output_lines.split("\n")
+    #print "opl: ", output_lines_l
+    if len(output_lines_l) > 1:
+        new_l = []
+        for i in output_lines_l[1:]:
+            new_l.append(i.split(" ")[1].split("\t")[0])
+        if param in new_l:
+            return True
+        else:
+            return False
+    else:
+        return False
 
 
 def write_attendance_file(dict_params):
@@ -164,15 +180,18 @@ def write_attendance_file(dict_params):
                     f_att_out = open("Att_output.txt", "ab")
                     try:
                         output = ""
-                        if already_exists(dict_params.get("unity_id")):
+                        print "OUTPUT!: ", already_exists(dict_params.get("unity_id"))
+                        if not already_exists(dict_params.get("unity_id")):
                             output = "\n" + str(dict_unity_ids.get(dict_params.get("unity_id"))) + ". " \
                                 + str(dict_params.get("unity_id")) + "\t" + dict_params.get("last_name") + " " \
                                 + dict_params.get("first_name")
-                        try:
-                            f_att_out.write(output)
-                            return True
-                        except Exception as e:
-                            print "Error in writing to file", e.message
+                            try:
+                                f_att_out.write(output)
+                                return True
+                            except Exception as e:
+                                print "Error in writing to file", e.message
+                        else:
+                            return False
                     except Exception as e:
                         print "File could not be read: ", e.message
                         return False
@@ -223,14 +242,15 @@ def process_data(data, conn):
             if w:
                 conn.send(http_header_success + "<html><body><h1>Attendance has been recorded</h1></body</html>")
             else:
-                conn.send(http_header_file_not_found)   # have to handle properly
+                conn.send(http_header_success + "<html><body><h1>Unable to add attendance. Make sure you belong to this"
+                                                " class, and make sure you submit only once!</h1></body</html>")
     conn.close()
     sys.exit(0)
 
 
 def main():
     client_count = 0
-    s = Server(8945)
+    s = Server(8985)
     s.create_socket()
 
 if __name__ == "__main__":
