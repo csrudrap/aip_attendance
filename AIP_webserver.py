@@ -9,6 +9,7 @@
 import socket
 import os
 import sys
+import commands
 import time
 
 http_header_success = "HTTP/1.0 200 OK\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
@@ -79,16 +80,48 @@ class Server:
 
 
 def process_client_address(cli_ip):
-    server_ip = socket.gethostbyname(socket.gethostname())
-    if is_in_same_subnet(server_ip, cli_ip):
+    # server_ip = socket.gethostbyname(socket.gethostname())
+    if is_in_same_subnet(cli_ip):
         return True
     else:
         return False
 
 
-def is_in_same_subnet(server_ip, cli_ip):
+def is_in_same_subnet(cli_ip):
     # must fill this out
-    return True
+    status, ip_addr_op = commands.getstatusoutput("ifconfig en0 | grep \"inet \"")
+    ip_addr_mask = ip_addr_op.split(" ")[0:4]
+    if ip_addr_mask is not None:
+        server_ip = ip_addr_mask[1]
+        mask_in_hex = ip_addr_mask[3]
+        mask_in_bin = bin(int(mask_in_hex, 16))
+        mask_count = mask_in_bin.count('1')
+        # We have the IP address and mask now.
+        # if cli_ip XOR server_ip starts with at least mask_count number of 0s, then same subnet
+        bin_cli = bin_from_dotted_decimal(cli_ip)
+        bin_server = bin_from_dotted_decimal(server_ip)
+        xor = bin(int(bin_cli, 2) ^ int(bin_server, 2))
+        num_padding = 32 - len(xor[2:])
+        padding = "0" * num_padding
+        xor = padding + str(xor[2:])
+        if xor.startswith("0" * mask_count):
+            return True
+        else:
+            return False
+
+
+def bin_from_dotted_decimal(ip):
+    ip_split = map(int, ip.split("."))
+    ip_split_bin = map(bin, ip_split)
+    ip_bin_str = ""
+    for i in ip_split_bin:
+        if len(i[2:]) < 8:
+            mul_qty = 8 - len(i[2:])
+            running_str = str(mul_qty * "0")
+            ip_bin_str += str(running_str) + str(i[2:])
+        else:
+            ip_bin_str += str(i[2:])
+    return ip_bin_str
 
 
 def get_file(filename):
@@ -104,6 +137,11 @@ def get_file(filename):
     except Exception as e:
         print "File could not be opened: ", e.message
         return None
+
+
+def already_exists(param):
+    file_output = open("Att_output.txt", "rb")
+    # check if this number exists in the file already, do not have duplicates.
 
 
 def write_attendance_file(dict_params):
@@ -125,9 +163,11 @@ def write_attendance_file(dict_params):
                 try:
                     f_att_out = open("Att_output.txt", "ab")
                     try:
-                        output = "\n" + str(dict_unity_ids.get(dict_params.get("unity_id"))) + ". " \
-                            + str(dict_params.get("unity_id")) + "\t" + dict_params.get("last_name") + " " \
-                            + dict_params.get("first_name")
+                        output = ""
+                        if already_exists(dict_params.get("unity_id")):
+                            output = "\n" + str(dict_unity_ids.get(dict_params.get("unity_id"))) + ". " \
+                                + str(dict_params.get("unity_id")) + "\t" + dict_params.get("last_name") + " " \
+                                + dict_params.get("first_name")
                         try:
                             f_att_out.write(output)
                             return True
@@ -190,7 +230,7 @@ def process_data(data, conn):
 
 def main():
     client_count = 0
-    s = Server(8956)
+    s = Server(8945)
     s.create_socket()
 
 if __name__ == "__main__":
