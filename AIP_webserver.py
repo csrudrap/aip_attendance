@@ -11,11 +11,14 @@ import os
 import sys
 import commands
 import time
+import random
+import logging
 
 http_header_success = "HTTP/1.0 200 OK\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
                   "max = 100\nConnection: Keep-Alive\n\n"
 http_header_file_not_found = "HTTP/1.0 404 Not Found\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
                   "max = 100\nConnection: Keep-Alive\n\n"
+lock_att_output = False
 
 
 class Server:
@@ -39,6 +42,7 @@ class Server:
                 print "Could not bind socket to port! Exiting"
                 self.shutdown_and_close()
                 sys.exit(1)
+        logging.info("Socket has been opened on port: ", self.port)
         self.listen_main_loop()
 
     def shutdown_and_close(self):
@@ -55,21 +59,11 @@ class Server:
         while True:
             self.sock.listen(1)
             conn, cli_addr = self.sock.accept()
+            logging.info("Client connection accepted with: ", cli_addr)
             if os.fork() == 0:
                 if process_client_address(cli_addr[0]):
                     data = conn.recv(1024)
-                    '''conn.send('HTTP/1.0 200 OK\n')
-                    conn.send('Content-Type: text/html\n')
-                    conn.send('Keep - Alive: timeout = 5, max = 100\n')
-                    conn.send('Connection: Keep-Alive\n')
-                    conn.send('\n')
-                    conn.send("""
-                                <html>
-                                <body>
-                                <h1>Hello World</h1> Wait, my server?
-                                </body>
-                                </html>
-                            """)'''
+                    logging.info("Data received by ", cli_addr, " at time: ", time.ctime(), " is: ", data)
                     process_data(data, conn)
                 else:
                     print "Access Denied."
@@ -180,13 +174,19 @@ def write_attendance_file(dict_params):
                     f_att_out = open("Att_output.txt", "ab")
                     try:
                         output = ""
-                        print "OUTPUT!: ", already_exists(dict_params.get("unity_id"))
                         if not already_exists(dict_params.get("unity_id")):
                             output = "\n" + str(dict_unity_ids.get(dict_params.get("unity_id"))) + ". " \
                                 + str(dict_params.get("unity_id")) + "\t" + dict_params.get("last_name") + " " \
                                 + dict_params.get("first_name")
                             try:
-                                f_att_out.write(output)
+                                global lock_att_output
+                                while lock_att_output:
+                                    logging.warn("Cannot write to file, lock cannot be acquired. Will try again.")
+                                    time.sleep(random.randint(0, 1))
+                                if not lock_att_output:
+                                    lock_att_output = True
+                                    f_att_out.write(output)
+                                    lock_att_output = False
                                 return True
                             except Exception as e:
                                 print "Error in writing to file", e.message
@@ -211,7 +211,6 @@ def write_attendance_file(dict_params):
 def process_data(data, conn):
     header_lines = data.split("\n")
     method_and_file = header_lines[0].split(" ")
-    print method_and_file
     method = method_and_file[0]
     filename = None
     if len(method_and_file) > 1:
@@ -220,6 +219,7 @@ def process_data(data, conn):
         file_to_send = get_file(filename)
         if file_to_send:
             global http_header_success
+            logging.info("Sending HTTP success with file to client.")
             conn.send(http_header_success + file_to_send)
         else:
             global http_header_file_not_found
@@ -249,9 +249,14 @@ def process_data(data, conn):
 
 
 def main():
-    client_count = 0
+    # client_count = 0
+    global lock_att_output
+    lock_att_output = False
+    logging.basicConfig(filename="att.log", level=logging.INFO)
+    logging.info("Started")
     s = Server(8985)
     s.create_socket()
+    logging.info("Finished")
 
 if __name__ == "__main__":
     main()
