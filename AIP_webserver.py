@@ -12,7 +12,7 @@ import sys
 import commands
 import time
 import random
-import logging
+# import logging
 
 http_header_success = "HTTP/1.0 200 OK\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
                   "max = 100\nConnection: Keep-Alive\n\n"
@@ -42,7 +42,7 @@ class Server:
                 print "Could not bind socket to port! Exiting"
                 self.shutdown_and_close()
                 sys.exit(1)
-        logging.info("Socket has been opened on port: ", self.port)
+        # logging.info("Socket has been opened on port: ", self.port)
         self.listen_main_loop()
 
     def shutdown_and_close(self):
@@ -59,11 +59,11 @@ class Server:
         while True:
             self.sock.listen(1)
             conn, cli_addr = self.sock.accept()
-            logging.info("Client connection accepted with: ", cli_addr)
+            # logging.info("Client connection accepted with: ", cli_addr)
             if os.fork() == 0:
                 if process_client_address(cli_addr[0]):
                     data = conn.recv(1024)
-                    logging.info("Data received by ", cli_addr, " at time: ", time.ctime(), " is: ", data)
+                    # logging.info("Data received by ", cli_addr, " at time: ", time.ctime(), " is: ", data)
                     process_data(data, conn)
                 else:
                     print "Access Denied."
@@ -181,7 +181,7 @@ def write_attendance_file(dict_params):
                             try:
                                 global lock_att_output
                                 while lock_att_output:
-                                    logging.warn("Cannot write to file, lock cannot be acquired. Will try again.")
+                                    # logging.warn("Cannot write to file, lock cannot be acquired. Will try again.")
                                     time.sleep(random.randint(0, 1))
                                 if not lock_att_output:
                                     lock_att_output = True
@@ -219,7 +219,7 @@ def process_data(data, conn):
         file_to_send = get_file(filename)
         if file_to_send:
             global http_header_success
-            logging.info("Sending HTTP success with file to client.")
+            # logging.info("Sending HTTP success with file to client.")
             conn.send(http_header_success + file_to_send)
         else:
             global http_header_file_not_found
@@ -252,11 +252,11 @@ def main():
     # client_count = 0
     global lock_att_output
     lock_att_output = False
-    logging.basicConfig(filename="att.log", level=logging.INFO)
-    logging.info("Started")
+    # logging.basicConfig(filename="att.log", level=# logging.INFO)
+    # logging.info("Started")
     s = Server(8985)
     s.create_socket()
-    logging.info("Finished")
+    # logging.info("Finished")
 
 if __name__ == "__main__":
     main()
