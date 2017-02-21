@@ -14,10 +14,10 @@ import time
 import random
 # import logging
 
-http_header_success = "HTTP/1.0 200 OK\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
-                  "max = 100\nConnection: Keep-Alive\n\n"
-http_header_file_not_found = "HTTP/1.0 404 Not Found\nContent-Type: text/html\nKeep - Alive: timeout = 5, " \
-                  "max = 100\nConnection: Keep-Alive\n\n"
+http_header_success = "HTTP/1.0 200 OK\nContent-Type: text/html\nKeep - Alive: timeout = 1, " \
+                  "max = 100\nConnection: close\n\n"
+http_header_file_not_found = "HTTP/1.0 404 Not Found\nContent-Type: text/html\nKeep - Alive: timeout = 1, " \
+                  "max = 100\nConnection: close\n\n"
 lock_att_output = False
 
 
@@ -48,6 +48,7 @@ class Server:
     def shutdown_and_close(self):
         try:
             self.sock.shutdown(socket.SHUT_RDWR)
+            print "Socket shutdown successfully."
         except Exception as e:
             print e.message, " Couldn't shutdown the socket on the server."
         try:
@@ -61,10 +62,12 @@ class Server:
             conn, cli_addr = self.sock.accept()
             # logging.info("Client connection accepted with: ", cli_addr)
             if os.fork() == 0:
+                data = conn.recv(1024)
+                print "data: ", data
                 if process_client_address(cli_addr[0]):
-                    data = conn.recv(1024)
                     # logging.info("Data received by ", cli_addr, " at time: ", time.ctime(), " is: ", data)
                     process_data(data, conn)
+                    self.shutdown_and_close()
                 else:
                     print "Access Denied."
                 sys.exit(1)
@@ -240,10 +243,10 @@ def process_data(data, conn):
                     dict_params[item.split("=")[0]] = item.split("=")[1]
             w = write_attendance_file(dict_params)
             if w:
-                conn.send(http_header_success + "<html><body><h1>Attendance has been recorded</h1></body</html>")
+                conn.send(http_header_success + "<html><body><h1>Attendance has been recorded</h1></body</html>\n")
             else:
                 conn.send(http_header_success + "<html><body><h1>Unable to add attendance. Make sure you belong to this"
-                                                " class, and make sure you submit only once!</h1></body</html>")
+                                                " class, and make sure you submit only once!</h1></body</html>\n")
     conn.close()
     sys.exit(0)
 
@@ -254,7 +257,7 @@ def main():
     lock_att_output = False
     # logging.basicConfig(filename="att.log", level=# logging.INFO)
     # logging.info("Started")
-    s = Server(8985)
+    s = Server(8980)
     s.create_socket()
     # logging.info("Finished")
 
