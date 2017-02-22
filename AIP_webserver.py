@@ -240,7 +240,7 @@ def process_data(data, conn):
             dict_params = {}
             for item in params_joined.split("&"):
                 if "=" in item:
-                    dict_params[item.split("=")[0]] = item.split("=")[1]
+                    dict_params[item.split("=")[0]] = item.split("=")[1].lower()
             w = write_attendance_file(dict_params)
             if w:
                 conn.send(http_header_success + "<html><body><h1>Attendance has been recorded</h1></body</html>\n")
