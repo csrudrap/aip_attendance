@@ -142,9 +142,7 @@ def already_exists(param):
     file_output = open("Att_output.txt", "rb")
     # check if this unity ID exists in the file already, do not have duplicates.
     output_lines = file_output.read()
-    #print "op: ", output_lines
     output_lines_l = output_lines.split("\n")
-    #print "opl: ", output_lines_l
     if len(output_lines_l) > 1:
         new_l = []
         for i in output_lines_l[1:]:
@@ -188,6 +186,7 @@ def write_attendance_file(dict_params):
                                     time.sleep(random.randint(0, 1))
                                 if not lock_att_output:
                                     lock_att_output = True
+                                    print output
                                     f_att_out.write(output)
                                     lock_att_output = False
                                 return True
