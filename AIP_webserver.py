@@ -71,7 +71,7 @@ class Server:
                     process_data(data, conn)
                     self.shutdown_and_close()
                 else:
-                    print "Access Denied."
+                    print "Access Denied. Client IP address not in same subnet: " + str(cli_addr[0])
                 sys.exit(1)
             else:
                 # Parent should simply listen to incoming requests
