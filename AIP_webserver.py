@@ -65,13 +65,17 @@ class Server:
                 data = conn.recv(1024)
                 student_info = data.split("\n")[-1]
                 logging.info("data: " + str(student_info))
-                if process_client_address(cli_addr[0]):
-                    logging.info("Data received by " + str(cli_addr),
-                                 " at time: %s is: %s" % (str(time.ctime()), str(student_info)))
-                    process_data(data, conn)
-                    self.shutdown_and_close()
-                else:
-                    print "Access Denied. Client IP address not in same subnet: " + str(cli_addr[0])
+                #if process_client_address(cli_addr[0]):
+                    #logging.info("Data received by " + str(cli_addr),
+                #                 " at time: %s is: %s" % (str(time.ctime()), str(student_info)))
+                process_data(data, conn, cli_addr[0])
+                self.shutdown_and_close()
+                #else:
+                    # Must get client IP address and what they send. Create a different function that
+                    # extracts IP address from data sent by the client.
+                    #print "Access Denied. Client IP address not in same subnet: " + str(cli_addr[0])
+                    #logging.info("Access Denied. Client IP address not in same subnet: " + str(cli_addr[0]) + \
+                     #            "and the data sent by the client is: " + data)
                 sys.exit(1)
             else:
                 # Parent should simply listen to incoming requests
@@ -85,6 +89,11 @@ def process_client_address(cli_ip):
     else:
         return False
 
+# def add_ip_unity_pair()
+    # For every request to submit attendance, add the unity ID and IP address pair to a new file. Also add Y for same
+    # subnet and N for not in the same subnet. Same subnet check should be done AFTER this.
+
+# def get_cli_ip()
 
 def is_in_same_subnet(cli_ip):
     # must fill this out
@@ -120,7 +129,7 @@ def bin_from_dotted_decimal(ip):
             mul_qty = 8 - len(i[2:])
             running_str = str(mul_qty * "0")
             ip_bin_str += str(running_str) + str(i[2:])
-        else:
+        elif len(i[2:]) == 8:
             ip_bin_str += str(i[2:])
     return ip_bin_str
 
@@ -157,7 +166,7 @@ def already_exists(param):
         return False
 
 
-def write_attendance_file(dict_params):
+def write_attendance_file(dict_params, cli_ip):
     try:
         file_all_students = open("Students_Sorted.txt")
         try:
@@ -180,7 +189,7 @@ def write_attendance_file(dict_params):
                         if not already_exists(dict_params.get("unity_id")):
                             output = "\n" + str(dict_unity_ids.get(dict_params.get("unity_id"))) + ". " \
                                 + str(dict_params.get("unity_id")) + "\t" + dict_params.get("last_name") + " " \
-                                + dict_params.get("first_name")
+                                + dict_params.get("first_name") + "\t" + cli_ip
                             try:
                                 global lock_att_output
                                 while lock_att_output:
@@ -188,8 +197,15 @@ def write_attendance_file(dict_params):
                                     time.sleep(random.randint(0, 1))
                                 if not lock_att_output:
                                     lock_att_output = True
-                                    print output
-                                    f_att_out.write(output)
+                                    logging.info(output)
+                                    if process_client_address(cli_ip):
+                                        f_att_out.write(output)
+                                    else:
+                                        f_diff_subnet_clients = open("Diff_subnets.txt", "ab")
+                                        f_diff_subnet_clients.write(output)
+                                        # CLIENT FROM DIFF SUBNET COMING HERE.
+                                        # WRITE TO A DIFF FILE: output, cli_ip
+                                        pass
                                     lock_att_output = False
                                 return True
                             except Exception as e:
@@ -212,7 +228,7 @@ def write_attendance_file(dict_params):
     return False
 
 
-def process_data(data, conn):
+def process_data(data, conn, cli_ip):
     header_lines = data.split("\n")
     method_and_file = header_lines[0].split(" ")
     method = method_and_file[0]
@@ -242,7 +258,7 @@ def process_data(data, conn):
             for item in params_joined.split("&"):
                 if "=" in item:
                     dict_params[item.split("=")[0]] = item.split("=")[1].lower()
-            w = write_attendance_file(dict_params)
+            w = write_attendance_file(dict_params, cli_ip)
             if w:
                 conn.send(http_header_success + "<html><body><h1>Attendance has been recorded</h1></body</html>\n")
             else:
@@ -258,7 +274,7 @@ def main():
     lock_att_output = False
     logging.basicConfig(filename="att.log", level=logging.DEBUG)
     logging.info("Started")
-    s = Server(8980)
+    s = Server(8984)
     s.create_socket()
     logging.info("Finished")
 
