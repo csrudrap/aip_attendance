@@ -44,6 +44,3 @@
 9. nedsouza	dsouza nirav	10.139.79.143
 17. cmanjun	manjunath chinmay	10.139.76.189
 1. maalexa2	alexander micah	10.139.79.102
-22. dupandit	pandit darshit	10.139.73.223
-5. sbarai	barai shiv+shankar	10.139.77.246
-3. hbalaji	balaji harish+rao	10.139.73.195

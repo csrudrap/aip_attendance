@@ -13,6 +13,7 @@ import commands
 import time
 import random
 import logging
+import json
 
 http_header_success = "HTTP/1.0 200 OK\nContent-Type: text/html\nKeep - Alive: timeout = 1, " \
                   "max = 100\nConnection: close\n\n"
@@ -198,6 +199,7 @@ def write_attendance_file(dict_params, cli_ip):
                                 if not lock_att_output:
                                     lock_att_output = True
                                     logging.info(output)
+                                    #check_with_arp(dict_params.get("unity_id"), cli_ip)
                                     if process_client_address(cli_ip):
                                         f_att_out.write(output)
                                     else:
@@ -268,10 +270,37 @@ def process_data(data, conn, cli_ip):
     sys.exit(0)
 
 
+def check_with_arp(unity_id, cli_ip):
+    status, arp_entry = commands.getstatusoutput("arp -n -i en0 -a | grep \(" + str(cli_ip) + "\)")
+    if len(arp_entry) > 0:
+        mac_address = arp_entry.split("at ")[1].split(" ")[0].strip()
+        data = {}
+        with open("unity_mac.json", "w+") as f1:
+            data = json.load(f1)
+        print "open worked"
+        if len(data.keys()) == 0:
+            data[unity_id] = [mac_address]
+        if mac_address not in data[unity_id][0]:
+            data[unity_id].extend(mac_address)
+        if len(data[unity_id][0]) > 2:
+            logging.critical(unity_id, "has more than 2 MAC addresses associated with the unity ID! Their IP addr is:", cli_ip)
+        with open("unity_mac.json", "w+") as f2:
+            json.dump(data, f2)
+    else:
+        if check_with_arp.counter < 5:
+            time.sleep(random.randint(0, 1))
+            check_with_arp(unity_id, cli_ip)
+    check_with_arp.counter += 1
+
+
+        # put this in the json file that has unity_id: {mac1, mac2..}
+        # if this list has more than 2 macs, log it (critical)
+
 def main():
     # client_count = 0
     global lock_att_output
     lock_att_output = False
+    check_with_arp.counter = 0
     logging.basicConfig(filename="att.log", level=logging.DEBUG)
     logging.info("Started")
     s = Server(8984)

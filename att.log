@@ -1,0 +1,592 @@
+INFO:root:Started
+INFO:root:Socket has been opened on port: 8984
+INFO:root:Client connection accepted with: ('10.139.79.152', 50600)
+INFO:root:Client connection accepted with: ('10.139.79.152', 50601)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.152', 50625)
+INFO:root:data: unity_id=cfernan3&first_name=C&last_name=F
+INFO:root:
+11. cfernan3	f c	10.139.79.152
+INFO:root:Client connection accepted with: ('10.139.79.152', 50626)
+INFO:root:Client connection accepted with: ('10.139.79.152', 50627)
+INFO:root:Client connection accepted with: ('10.139.79.152', 50628)
+INFO:root:data: unity_id=cfernan3&first_name=C&last_name=F
+INFO:root:
+11. cfernan3	f c	10.139.79.152
+INFO:root:Client connection accepted with: ('10.139.79.152', 50629)
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.152', 50643)
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.79.152', 50644)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.74.31', 50212)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.75.138', 55567)
+INFO:root:Client connection accepted with: ('10.139.72.164', 55346)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.76.113', 38504)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.31', 50211)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.76.113', 38505)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.138', 55568)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.28', 59711)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.72.164', 55345)
+INFO:root:Client connection accepted with: ('10.139.77.28', 59712)
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.78.127', 51965)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.75.168', 58683)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.78.127', 51967)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.138', 55569)
+INFO:root:data: unity_id=ppandey3&first_name=Prashant&last_name=Pandey
+INFO:root:
+21. ppandey3	pandey prashant	10.139.75.138
+INFO:root:Client connection accepted with: ('10.139.77.150', 60202)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.72.214', 50657)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.75.168', 58682)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.72.214', 50658)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.150', 60201)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.76.113', 38507)
+INFO:root:data: unity_id=jsingh8&first_name=Jalandhar&last_name=Singh
+INFO:root:
+28. jsingh8	singh jalandhar	10.139.76.113
+INFO:root:Client connection accepted with: ('10.139.79.85', 51235)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.78.127', 51968)
+INFO:root:data: unity_id=agupta30&first_name=Akarsh&last_name=Gupta
+INFO:root:
+13. agupta30	gupta akarsh	10.139.78.127
+INFO:root:Client connection accepted with: ('10.139.79.85', 51248)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.76.167', 58153)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.74.179', 61013)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.76.167', 58159)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.67', 56400)
+INFO:root:Client connection accepted with: ('10.139.73.100', 50982)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.72.164', 55350)
+INFO:root:data: unity_id=ssdeshp5&first_name=Sneha&last_name=Deshpande
+INFO:root:
+8. ssdeshp5	deshpande sneha	10.139.72.164
+INFO:root:Client connection accepted with: ('10.139.73.100', 50983)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.74.67', 56407)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.168', 58686)
+INFO:root:data: unity_id=prtanksa&first_name=Prashant&last_name=Tanksali
+INFO:root:
+58. prtanksa	tanksali prashant	10.139.75.168
+INFO:root:Client connection accepted with: ('10.139.74.67', 56406)
+INFO:root:Client connection accepted with: ('10.139.74.31', 50217)
+INFO:root:data: unity_id=spoondr&first_name=Sushma&last_name=Poondru
+INFO:root:
+23. spoondr	poondru sushma	10.139.74.31
+INFO:root:Client connection accepted with: ('10.139.72.214', 50659)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.168', 58685)
+INFO:root:Client connection accepted with: ('10.139.74.137', 53122)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.232', 55301)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.78.120', 55215)
+INFO:root:Client connection accepted with: ('10.139.74.179', 61015)
+INFO:root:data: unity_id=rrathor&first_name=Rishabh&last_name=Rathore
+INFO:root:
+24. rrathor	rathore rishabh	10.139.74.179
+INFO:root:Client connection accepted with: ('10.139.74.179', 61012)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.78.120', 55217)
+INFO:root:Client connection accepted with: ('10.139.74.137', 53121)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.232', 55300)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.72.214', 50660)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.72.192', 52181)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.136.25.194', 8666)
+INFO:root:data: unity_id=akapoor3&first_name=Ayush&last_name=Kapoor
+INFO:root:
+44. akapoor3	kapoor ayush	10.139.74.67
+INFO:root:Client connection accepted with: ('10.139.79.85', 51267)
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.136.25.194', 8669)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.78.120', 55219)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.72.214', 50663)
+INFO:root:data: unity_id=ntayal&first_name=Nikhil&last_name=Tayal
+INFO:root:
+29. ntayal	tayal nikhil	10.139.72.214
+INFO:root:Client connection accepted with: ('10.139.72.192', 52185)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.78.120', 55220)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.72.192', 52189)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.100', 50987)
+INFO:root:data: unity_id=mmozark&first_name=Mrunal+Jayant&last_name=Mozarkar
+INFO:root:
+20. mmozark	mozarkar mrunal+jayant	10.139.73.100
+INFO:root:Client connection accepted with: ('10.139.79.85', 51268)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.58', 33328)
+INFO:root:Client connection accepted with: ('10.139.74.137', 53127)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.173', 45865)
+INFO:root:Client connection accepted with: ('10.139.75.173', 45866)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.58', 33329)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.85', 51271)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.150', 60222)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.232', 55464)
+INFO:root:data: unity_id=mmshah6&first_name=Manan&last_name=Shah
+INFO:root:
+27. mmshah6	shah manan	10.139.77.232
+INFO:root:Client connection accepted with: ('10.139.76.167', 58167)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.136.25.194', 8684)
+INFO:root:data: unity_id=tgupta3&first_name=Tushar&last_name=Gupta
+INFO:root:
+40. tgupta3	gupta tushar	10.136.25.194
+INFO:root:Client connection accepted with: ('10.139.77.150', 60221)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.74.137', 53130)
+INFO:root:Client connection accepted with: ('10.139.79.85', 51277)
+INFO:root:data: unity_id=akumar24&first_name=Abhimanyu&last_name=Kumar
+INFO:root:
+46. akumar24	kumar abhimanyu	10.139.79.85
+INFO:root:Client connection accepted with: ('10.136.25.194', 8690)
+INFO:root:data: unity_id=tgupta3&first_name=Tushar&last_name=Gupta
+INFO:root:
+40. tgupta3	gupta tushar	10.136.25.194
+INFO:root:Client connection accepted with: ('10.139.73.146', 51118)
+INFO:root:Client connection accepted with: ('10.139.74.137', 53133)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.73.146', 51119)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.136.25.194', 8698)
+INFO:root:Client connection accepted with: ('10.139.77.28', 59715)
+INFO:root:data: unity_id=smohapa3&first_name=shibalik&last_name=mohapatra
+INFO:root:
+48. smohapa3	mohapatra shibalik	10.139.77.28
+INFO:root:data: unity_id=ymuppal&first_name=YASWANTHKUMAR&last_name=MUPPALLA
+INFO:root:
+49. ymuppal	muppalla yaswanthkumar	10.139.74.137
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.136.25.194', 8701)
+INFO:root:Client connection accepted with: ('10.139.74.137', 53135)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.58', 33333)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.173', 45869)
+INFO:root:data: unity_id=rjoseph4&first_name=Ronald&last_name=Joseph
+INFO:root:
+43. rjoseph4	joseph ronald	10.139.75.173
+INFO:root:Client connection accepted with: ('10.139.75.173', 45870)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.150', 60223)
+INFO:root:data: unity_id=hkbhardw&first_name=Harleen+Kaur&last_name=Bhardwaj
+INFO:root:
+6. hkbhardw	bhardwaj harleen+kaur	10.139.77.150
+INFO:root:Client connection accepted with: ('10.136.12.168', 64249)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: unity_id=tgupta3&first_name=Tushar&last_name=Gupta
+INFO:root:
+40. tgupta3	gupta tushar	10.136.25.194
+INFO:root:Client connection accepted with: ('10.139.73.146', 51120)
+INFO:root:data: unity_id=abhat2&first_name=Ashish&last_name=Bhat
+INFO:root:
+34. abhat2	bhat ashish	10.139.73.146
+INFO:root:Client connection accepted with: ('10.139.75.173', 45872)
+INFO:root:Client connection accepted with: ('10.136.12.168', 64253)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.173', 45874)
+INFO:root:Client connection accepted with: ('10.139.74.79', 62124)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.75.233', 57006)
+INFO:root:Client connection accepted with: ('10.139.75.173', 45873)
+INFO:root:Client connection accepted with: ('10.139.75.233', 57007)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.79', 62123)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.136.12.168', 64258)
+INFO:root:data: unity_id=mhe5&first_name=Mengxing&last_name=He
+INFO:root:
+41. mhe5	he mengxing	10.136.12.168
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.78.120', 55225)
+INFO:root:data: unity_id=yrathor&first_name=Yuvraj+Singh&last_name=Rathore
+INFO:root:
+52. yrathor	rathore yuvraj+singh	10.139.78.120
+INFO:root:Client connection accepted with: ('10.139.72.192', 52196)
+INFO:root:data: unity_id=kmishra&first_name=Kushagra&last_name=Mishra
+INFO:root:
+19. kmishra	mishra kushagra	10.139.72.192
+INFO:root:Client connection accepted with: ('10.139.74.79', 62131)
+INFO:root:data: unity_id=phasher&first_name=Priya&last_name=Asher
+INFO:root:
+31. phasher	asher priya	10.139.74.79
+INFO:root:Client connection accepted with: ('10.139.77.58', 33334)
+INFO:root:data: unity_id=nsakhal&first_name=Nupur+Pradeep&last_name=Sakhalkar
+INFO:root:
+54. nsakhal	sakhalkar nupur+pradeep	10.139.77.58
+INFO:root:Client connection accepted with: ('10.139.76.37', 52802)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.74.79', 62134)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.76.37', 52803)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.74.79', 62135)
+INFO:root:Client connection accepted with: ('10.139.75.233', 57012)
+INFO:root:data: unity_id=nsakhal2&first_name=Neha+Pradeep&last_name=Sakhalkar
+INFO:root:
+53. nsakhal2	sakhalkar neha+pradeep	10.139.75.233
+INFO:root:Client connection accepted with: ('10.139.73.131', 37143)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.73.176', 48400)
+INFO:root:Client connection accepted with: ('10.139.73.131', 37147)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.176', 48402)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.76.37', 52808)
+INFO:root:data: unity_id=atandon&first_name=Aasheesh&last_name=Tandon
+INFO:root:
+57. atandon	tandon aasheesh	10.139.76.37
+INFO:root:Client connection accepted with: ('10.136.26.61', 60514)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.75.0', 50367)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.136.26.61', 60525)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.176', 48409)
+INFO:root:data: unity_id=abasu2&first_name=Anandi&last_name=Basu
+INFO:root:
+33. abasu2	basu anandi	10.139.73.176
+INFO:root:Client connection accepted with: ('10.139.73.131', 37154)
+INFO:root:data: unity_id=vdramise&first_name=Visal&last_name=Ramisetti
+INFO:root:
+51. vdramise	ramisetti visal	10.139.73.131
+INFO:root:Client connection accepted with: ('10.139.79.87', 58105)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.75.0', 50366)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.87', 58104)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.131', 37156)
+INFO:root:Client connection accepted with: ('10.139.73.131', 37158)
+INFO:root:data: unity_id=vdramise&first_name=Visal&last_name=Ramisetti
+INFO:root:Client connection accepted with: ('10.139.73.131', 37160)
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.136.26.61', 60527)
+INFO:root:data: unity_id=vaisha&first_name=Vaishali&last_name=Biswas
+INFO:root:
+60. vaisha	biswas vaishali	10.136.26.61
+INFO:root:Client connection accepted with: ('10.139.75.59', 53187)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.79.87', 58109)
+INFO:root:data: unity_id=aganesh3&first_name=Ashwin&last_name=Ganesh
+INFO:root:
+12. aganesh3	ganesh ashwin	10.139.79.87
+INFO:root:Client connection accepted with: ('10.139.75.59', 53190)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.76.162', 55054)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.106', 52453)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.106', 52454)
+INFO:root:Client connection accepted with: ('10.139.75.0', 50370)
+INFO:root:data: unity_id=vseshag&first_name=Vishal+Kumar&last_name=Seshagirirao+Anil
+INFO:root:
+26. vseshag	seshagirirao+anil vishal+kumar	10.139.75.0
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.59', 53196)
+INFO:root:data: unity_id=amaleth&first_name=Aparna&last_name=Maleth
+INFO:root:
+47. amaleth	maleth aparna	10.139.75.59
+INFO:root:Client connection accepted with: ('10.139.76.162', 55053)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.75.59', 53198)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.76.162', 55055)
+INFO:root:data: unity_id=sbalani&first_name=Sagar&last_name=Balani
+INFO:root:
+4. sbalani	balani sagar	10.139.76.162
+INFO:root:Client connection accepted with: ('10.139.74.9', 49976)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.9', 49975)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.106', 52471)
+INFO:root:data: unity_id=manush&first_name=Manushri&last_name=fnu
+INFO:root:
+18. manush	fnu manushri	10.139.77.106
+INFO:root:Client connection accepted with: ('10.139.74.9', 49977)
+INFO:root:data: unity_id=ssen6&first_name=Srinjoy&last_name=Sen
+INFO:root:
+25. ssen6	sen srinjoy	10.139.74.9
+INFO:root:Client connection accepted with: ('10.139.75.59', 53201)
+INFO:root:data: unity_id=dfermi&first_name=Danis&last_name=Fermi
+INFO:root:
+37. dfermi	fermi danis	10.139.75.59
+INFO:root:Client connection accepted with: ('10.139.75.59', 53220)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.181', 40771)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.75.59', 53221)
+INFO:root:data: unity_id=dfermi&first_name=Danis&last_name=Fermi
+INFO:root:Client connection accepted with: ('10.139.77.181', 40773)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.181', 40776)
+INFO:root:data: unity_id=arattili&first_name=Aniruddha&last_name=Attili
+INFO:root:
+2. arattili	attili aniruddha	10.139.77.181
+INFO:root:Client connection accepted with: ('10.139.79.85', 51346)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.181', 40784)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.48', 57583)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.48', 57586)
+INFO:root:data: unity_id=sjain11&first_name=Sambhav&last_name=Jain
+INFO:root:
+42. sjain11	jain sambhav	10.139.73.48
+INFO:root:Client connection accepted with: ('10.139.76.167', 58186)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.73.48', 57589)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.85', 51514)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.76.167', 58193)
+INFO:root:data: unity_id=pgupta9&first_name=Pratyush&last_name=Gupta
+INFO:root:
+39. pgupta9	gupta pratyush	10.139.76.167
+INFO:root:Client connection accepted with: ('10.139.79.85', 51515)
+INFO:root:data: unity_id=lkommi&first_name=Lahari&last_name=Kommi
+INFO:root:
+45. lkommi	kommi lahari	10.139.79.85
+INFO:root:Client connection accepted with: ('10.139.79.102', 53760)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.79.102', 53764)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.102', 53765)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.79.102', 53766)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.13', 63236)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.79.243', 49441)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.13', 63250)
+INFO:root:Client connection accepted with: ('10.139.79.243', 49443)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.78.149', 58381)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.78.149', 58380)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.78.149', 58382)
+INFO:root:data: unity_id=dshaji&first_name=Doyal&last_name=Shaji
+INFO:root:
+55. dshaji	shaji doyal	10.139.78.149
+INFO:root:Client connection accepted with: ('10.139.79.243', 49451)
+INFO:root:data: unity_id=myelava&first_name=Manoj+Kumar&last_name=Yelavarthy
+INFO:root:
+62. myelava	yelavarthy manoj+kumar	10.139.79.243
+INFO:root:Client connection accepted with: ('10.139.77.94', 65198)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.94', 65197)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.94', 65202)
+INFO:root:data: unity_id=kvishwa3&first_name=Karan&last_name=Vishwanath
+INFO:root:
+61. kvishwa3	vishwanath karan	10.139.77.94
+INFO:root:Client connection accepted with: ('10.139.79.143', 50598)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.79.143', 50597)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.143', 50600)
+INFO:root:data: unity_id=cfernan3&first_name=Calvin+&last_name=Fernando
+INFO:root:
+11. cfernan3	fernando calvin+	10.139.79.143
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.74.243', 42102)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.243', 42104)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.74.243', 42113)
+INFO:root:data: unity_id=dppynada&first_name=Davis&last_name=Pynadath
+INFO:root:
+35. dppynada	pynadath davis	10.139.74.243
+INFO:root:Client connection accepted with: ('10.139.79.102', 53843)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.79.143', 50604)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.83', 28268)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.83', 28267)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.102', 53863)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.74.83', 28749)
+INFO:root:data: unity_id=pdinkar&first_name=Param&last_name=Dinkar
+INFO:root:
+36. pdinkar	dinkar param	10.139.74.83
+INFO:root:Client connection accepted with: ('10.139.79.143', 50609)
+INFO:root:data: unity_id=nedsouza&first_name=Nirav&last_name=Dsouza
+INFO:root:
+9. nedsouza	dsouza nirav	10.139.79.143
+INFO:root:Client connection accepted with: ('10.139.76.189', 56057)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.76.189', 56070)
+INFO:root:data: unity_id=cmanjun&first_name=Chinmay&last_name=Manjunath
+INFO:root:
+17. cmanjun	manjunath chinmay	10.139.76.189
+INFO:root:Client connection accepted with: ('10.139.77.181', 40945)
+INFO:root:Client connection accepted with: ('10.139.76.189', 56089)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.181', 40946)
+INFO:root:data: 
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.79.102', 53912)
+INFO:root:data: unity_id=maalexa2&first_name=Micah&last_name=Alexander
+INFO:root:
+1. maalexa2	alexander micah	10.139.79.102
+INFO:root:Client connection accepted with: ('10.139.74.13', 63258)
+INFO:root:data: 
+INFO:root:Started
+INFO:root:Socket has been opened on port: 8984
+INFO:root:Client connection accepted with: ('10.139.73.223', 54812)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.246', 4221)
+INFO:root:Client connection accepted with: ('10.139.77.246', 4223)
+INFO:root:Client connection accepted with: ('10.139.73.223', 54814)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.195', 61134)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.223', 54817)
+INFO:root:data: unity_id=dupandit&first_name=Darshit&last_name=Pandit
+INFO:root:
+22. dupandit	pandit darshit	10.139.73.223
+INFO:root:Client connection accepted with: ('10.139.77.246', 4239)
+INFO:root:data: unity_id=SBARAI&first_name=SHIV+SHANKAR&last_name=BARAI
+INFO:root:
+5. sbarai	barai shiv+shankar	10.139.77.246
+INFO:root:Client connection accepted with: ('10.139.73.195', 61135)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.73.223', 54833)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.73.195', 61201)
+INFO:root:data: unity_id=hbalaji&first_name=Harish+Rao&last_name=Balaji
+INFO:root:
+3. hbalaji	balaji harish+rao	10.139.73.195
+INFO:root:Client connection accepted with: ('10.139.77.67', 52882)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
+INFO:root:Client connection accepted with: ('10.139.77.67', 52881)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.67', 52889)
+INFO:root:data: 
+INFO:root:Client connection accepted with: ('10.139.77.67', 52893)
+INFO:root:data: unity_id=hbalaji&first_name=Harish+Rao&last_name=Balaji
+INFO:root:Client connection accepted with: ('10.136.12.167', 12810)
+INFO:root:data: 
+INFO:root:Sending HTTP success with file to client.
