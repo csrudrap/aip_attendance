@@ -97,7 +97,6 @@ def process_client_address(cli_ip):
 # def get_cli_ip()
 
 def is_in_same_subnet(cli_ip):
-    # must fill this out
     if cli_ip == "127.0.0.1":
         return True
     status, ip_addr_op = commands.getstatusoutput("ifconfig en0 | grep \"inet \"")
@@ -303,7 +302,7 @@ def main():
     check_with_arp.counter = 0
     logging.basicConfig(filename="att.log", level=logging.DEBUG)
     logging.info("Started")
-    s = Server(8984)
+    s = Server(8980)
     s.create_socket()
     logging.info("Finished")
 
